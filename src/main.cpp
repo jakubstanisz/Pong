@@ -1,23 +1,27 @@
 #include "raylib.h"
-#include "GameWindow.hpp"
 #include "Paddle.hpp"
 #include "Movement.hpp"
 #include "PointCounter.hpp"
 #include "Ball.hpp"
+#include <iostream>
 
-#define PADDLE_SPEED 500.0
-// todo:
-// 2. delete game window.
+#define PADDLE_SPEED 1000.0
 
 int main(int argc, char* argv[]){
-    GameWindow gameWindow(argc, argv);
-    gameWindow.initializeWindow();
+    int screenWidth;
+    int screenHeight;
+    if (argc == 3){
+        screenWidth = std::atoi(argv[1]);
+        screenHeight = std::atoi(argv[2]);
+    }else {
+        std::cout << "Blednie podane argumenty startowe. Ustawiam wartosci domyslne" << std::endl;
+        screenWidth = 1200;
+        screenHeight = 600;
+    }
+    InitWindow(screenWidth, screenHeight, "Pong Game");
 
-    int screenWidth = gameWindow.getScreenWidth();
-    int screenHeight = gameWindow.getScreenHeight();
-
-    Paddle paddle1(5, 60, {20, 10});
-    Paddle paddle2(5 , 60, {GetScreenWidth() - 20.0f, 10});
+    Paddle paddle1(5, 75, {20, 10});
+    Paddle paddle2(5 , 75, {GetScreenWidth() - 20.0f, 10});
     PointCounter pCounter1(0);
     PointCounter pCounter2(0);
     Ball ball({GetScreenWidth() / 2.0f, GetScreenHeight() / 2.0f});
@@ -32,8 +36,8 @@ int main(int argc, char* argv[]){
         ball.drawBall();
         pCounter1.drawPoints({60, 30});
         pCounter2.drawPoints({GetScreenWidth() - 60.0f, 30});
-        ball.Update(paddle1, pCounter1);
-        ball.Update(paddle2, pCounter2);
+        ball.Update(paddle1, pCounter1, pCounter2);
+        ball.Update(paddle2, pCounter1, pCounter2);
         paddle1.drawPaddle();
         paddle2.drawPaddle();
         EndDrawing();

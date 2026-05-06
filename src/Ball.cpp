@@ -25,7 +25,7 @@ Vector2 Ball::getVelocity() {
     return velocity; 
 }
 
-void Ball::Update(Paddle &paddle, PointCounter &pointCounter) {
+void Ball::Update(Paddle &paddle, PointCounter &pointCounter1, PointCounter &pointCounter2) {
     position.x += velocity.x * GetFrameTime();
     position.y += velocity.y * GetFrameTime();
 
@@ -36,9 +36,12 @@ void Ball::Update(Paddle &paddle, PointCounter &pointCounter) {
         position.y = GetScreenHeight() - radius;
         velocity.y *= -1;
     }
-    if (position.x < 0 || position.x > GetScreenWidth()){
+    if (position.x < 0){
         respawn();
-        pointCounter.addPoint();
+        pointCounter2.addPoint();
+    }else if (position.x > GetScreenWidth()){
+        respawn();
+        pointCounter1.addPoint();
     }
     if (CheckCollisionCircleRec(position, radius, paddle.getRect())){
         velocity.x *= -1;
@@ -54,7 +57,7 @@ void Ball::respawn() {
     position.x = GetScreenWidth() / 2.0f;
     position.y = (float)GetRandomValue(20, GetScreenHeight() - 20);
 
-    float speed = 100.0f;
+    float speed = 400.0f;
     float angle = (float)GetRandomValue(-30, 30); 
 
     if (GetRandomValue(0, 1) == 0) angle += 180.0f;

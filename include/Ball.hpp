@@ -16,7 +16,7 @@ public:
     void setVelocity(Vector2 vel);
     Vector2 getVelocity();
     
-    void Update(Paddle &paddle, PointCounter &pointCounter);
+    void Update(Paddle &paddle, PointCounter &pointCounter1, PointCounter &pointCounter2);
     void drawBall();
     void respawn();
 };
