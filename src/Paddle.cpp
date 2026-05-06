@@ -1,7 +1,6 @@
 #include "Paddle.hpp"
-#include "GameWindow.hpp"
 #include "raylib.h"
-#include <cmath>
+
 Paddle::Paddle(int pW, int pH, Vector2 pos){
     paddleWidth = pW;
     paddleHeight = pH;

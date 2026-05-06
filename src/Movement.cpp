@@ -4,7 +4,7 @@
 void Movement::Move(Paddle &paddle1, Paddle &paddle2, float speed){
     Vector2 position1 = paddle1.getPaddlePosition();
     Vector2 position2 = paddle2.getPaddlePosition();
-    if (IsKeyDown(KEY_DOWN) && (position1.y + paddle1.getPaddleHeight() < GetScreenHeight())){
+    if (IsKeyDown(KEY_DOWN) && position1.y + paddle1.getPaddleHeight() < GetScreenHeight()){
         position1.y += GetFrameTime() * speed;
     }else if (IsKeyDown(KEY_UP) && (position1.y > 0)){
         position1.y -= GetFrameTime() * speed;

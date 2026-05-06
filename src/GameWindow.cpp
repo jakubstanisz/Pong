@@ -1,4 +1,5 @@
 #include "GameWindow.hpp"
+#include "raylib.h"
 #include <iostream>
 GameWindow::GameWindow(int argc,char* argv[]){
     if (argc == 3){
@@ -8,7 +9,6 @@ GameWindow::GameWindow(int argc,char* argv[]){
         std::cout << "Blednie podane argumenty startowe. Ustawiam wartosci domyslne" << std::endl;
         screenWidth = 800;
         screenHeight = 600;
-
     }
 }
 void GameWindow::setScreenWidth(int sW){

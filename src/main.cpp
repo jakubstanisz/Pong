@@ -2,7 +2,6 @@
 #include "GameWindow.hpp"
 #include "Paddle.hpp"
 #include "Movement.hpp"
-#include <iostream>
 
 #define PADDLE_SPEED 500.0
 
@@ -23,7 +22,7 @@ int main(int argc, char* argv[]){
         DrawLine(screenWidth / 2, 5, 
             screenWidth / 2 + 8, screenHeight, WHITE); 
         Movement::Move(paddle1, paddle2, PADDLE_SPEED);
-        
+
         paddle1.drawPaddle();
         paddle2.drawPaddle();
         EndDrawing();
