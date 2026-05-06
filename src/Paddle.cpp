@@ -27,3 +27,6 @@ Vector2 Paddle::getPaddlePosition(){
 void Paddle::drawPaddle(){
     DrawRectangle(position.x, position.y, paddleWidth, paddleHeight, WHITE);
 }
+Rectangle Paddle::getRect(){
+    return {position.x, position.y, (float)paddleWidth, (float)paddleHeight};
+}

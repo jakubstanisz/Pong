@@ -15,4 +15,5 @@ class Paddle{
         int getPaddleHeight();
         Vector2 getPaddlePosition();
         void drawPaddle();
+        Rectangle getRect();
 };
