@@ -16,7 +16,7 @@ int main(int argc, char* argv[]){
     }else {
         std::cout << "Blednie podane argumenty startowe. Ustawiam wartosci domyslne" << std::endl;
         screenWidth = 1200;
-        screenHeight = 600;
+        screenHeight = 650;
     }
     InitWindow(screenWidth, screenHeight, "Pong Game");
 
@@ -34,8 +34,8 @@ int main(int argc, char* argv[]){
             screenWidth / 2 + 8, screenHeight, WHITE); 
         Movement::Move(paddle1, paddle2, PADDLE_SPEED);
         ball.drawBall();
-        pCounter1.drawPoints({60, 30});
-        pCounter2.drawPoints({GetScreenWidth() - 60.0f, 30});
+        pCounter1.drawPoints({75, 30});
+        pCounter2.drawPoints({GetScreenWidth() - 75.0f, 30});
         ball.Update(paddle1, pCounter1, pCounter2);
         ball.Update(paddle2, pCounter1, pCounter2);
         paddle1.drawPaddle();

@@ -17,5 +17,5 @@ int PointCounter::getPoints(){
 }
 
 void PointCounter::drawPoints(Vector2 position){
-    DrawText(TextFormat("%d", points), position.x, position.y, 30, WHITE);
+    DrawText(TextFormat("%d", points), position.x, position.y, 50, WHITE);
 }
